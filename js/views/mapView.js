@@ -6,6 +6,7 @@ class MapView {
     var infowindow
     var marker
     var hotspotMarkers
+    var prevInfowindow = false
 
     Promise.all([locationPromise, hotspots])
     .then(([locationResult, data]) => {
@@ -16,7 +17,7 @@ class MapView {
       });
 
       infowindow = new google.maps.InfoWindow({
-        content: "<h2>THIS IS WHERE YOU AT</h2>"
+        content: "<h2 id='where-im-at'>THIS IS WHERE YOU AT</h2>"
       });
 
       marker = new google.maps.Marker({
@@ -39,6 +40,11 @@ class MapView {
           map: map
         });
         hotspotMarker.addListener('click', function() {
+          if(prevInfowindow) {
+            prevInfowindow.close();
+          }
+
+          prevInfowindow = hotspotInfowindow;
           hotspotInfowindow.open(map, hotspotMarker);
         });
       })

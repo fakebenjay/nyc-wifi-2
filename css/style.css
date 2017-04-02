@@ -1,4 +1,19 @@
+@keyframes pretty-colors {
+    0%   {color:red;}
+    25%  {color:yellow;}
+    50%  {color:blue;}
+    75%  {color:green;}
+    100% {color:red;}
+}
+
 #map {
   height: 400px;
   width: 100%;
+}
+
+#where-im-at {
+    color: red;
+    animation-name: pretty-colors;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
 }
