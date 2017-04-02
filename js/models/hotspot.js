@@ -55,6 +55,7 @@ class Hotspot {
 
   static distance(hotspot, locationResult) {
     const earthRadius = 6371;
+    // const earthRadiusInMiles = 3959;
 
     var myLatitudeRads = locationResult.lat * (Math.PI / 180);
     var myLongitudeRads = locationResult.lng * (Math.PI / 180);
@@ -70,7 +71,7 @@ class Hotspot {
 
     var dy = y0 - y1;
     var dx = x0 - x1;
-    
+
     var d = Math.sqrt((dx * dx) + (dy * dy));
 
     return d <= 1
