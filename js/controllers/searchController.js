@@ -1,7 +1,8 @@
 class SearchController {
-  constructor($button, $mapArea) {
+  constructor($button, $mapArea, $loadScreen) {
     this.$button = $button
     this.$mapArea = $mapArea
+    this.$loadScreen = $loadScreen
     this.attachListeners()
   }
   attachListeners() {
@@ -9,11 +10,11 @@ class SearchController {
       e.preventDefault()
       var hotspots = Hotspot.localize() //Lines 10-13 & 15 were greyed out in MapView.js
       var locationPromise = Here.whereAmI()
-      $('div#loading').show()
+      $loadScreen.show()
       Promise.all([locationPromise, hotspots])
       .then(([locationResult, data]) => {
         $mapArea.show()
-        $('div#loading').hide()
+        $loadScreen.hide()
         MapView.initMap(this.$mapArea, locationResult, data) //Line 14 was modified to handle more params
       })
     })
