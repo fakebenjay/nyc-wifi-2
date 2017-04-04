@@ -9,8 +9,11 @@ class SearchController {
       e.preventDefault()
       var hotspots = Hotspot.localize() //Lines 10-13 & 15 were greyed out in MapView.js
       var locationPromise = Here.whereAmI()
+      $('div#loading').show()
       Promise.all([locationPromise, hotspots])
       .then(([locationResult, data]) => {
+        $mapArea.show()
+        $('div#loading').hide()
         MapView.initMap(this.$mapArea, locationResult, data) //Line 14 was modified to handle more params
       })
     })

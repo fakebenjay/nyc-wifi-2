@@ -1,5 +1,6 @@
 $(() => {
+  $hidden = $('div#loading').hide()
   $button = $('button.button')
-  $mapArea = $('div#map')
+  $mapArea = $('div#map').hide()
   let sCont = new SearchController($button, $mapArea)
 })
