@@ -54,8 +54,11 @@ class Hotspot {
   }
 
   static distance(hotspot, locationResult) {
-    const earthRadius = 6371;
-    // const earthRadiusInMiles = 3959;
+    if ($('select#measure').val() === 'kilometers') {
+      var earthRadius = 6371;
+    } else if ($('select#measure').val() === 'miles') {
+      var earthRadius = 3959;
+    }
 
     var myLatitudeRads = locationResult.lat * (Math.PI / 180);
     var myLongitudeRads = locationResult.lng * (Math.PI / 180);
@@ -74,6 +77,6 @@ class Hotspot {
 
     var d = Math.sqrt((dx * dx) + (dy * dy));
 
-    return d <= 1
+    return d <= $('input#distance').val()
   }
 }
