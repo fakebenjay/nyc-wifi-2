@@ -1,5 +1,5 @@
 class Hotspot {
-  constructor(objectId, ssid, location, city, boro, locationType, latitude, longitude, name, provider) {
+  constructor(objectId, ssid, location, city, boro, locationType, latitude, longitude, name, provider, distance) {
     this.objectId = objectId
     this.ssid = ssid
     this.location = location
@@ -10,6 +10,7 @@ class Hotspot {
     this.longitude = parseFloat(longitude)
     this.name = name
     this.provider = provider
+    this.distance = distance
   }
 
   static all() {
@@ -76,6 +77,8 @@ class Hotspot {
     var dx = x0 - x1;
 
     var d = Math.sqrt((dx * dx) + (dy * dy));
+
+    hotspot.distance = Number((d).toFixed(2))
 
     return d <= $('input#distance').val()
   }
