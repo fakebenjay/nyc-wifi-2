@@ -17,8 +17,6 @@ class Hotspot {
   static all() {
     return HotspotApi.getJSON("views/yjub-udmw/rows.json")
     .then(this.filterOutTimeWarner)
-    .then(this.filterOutCablevision)
-    .then(this.filterOutATT)
     .then((data) => {
       return data.map(this.modelize)
     })
