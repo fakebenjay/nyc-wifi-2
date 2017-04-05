@@ -1,9 +1,9 @@
 @keyframes pretty-colors {
-    0%   {color:red;}
-    25%  {color:yellow;}
-    50%  {color:blue;}
-    75%  {color:green;}
-    100% {color:red;}
+  0%   {color:red;}
+  25%  {color:yellow;}
+  50%  {color:blue;}
+  75%  {color:green;}
+  100% {color:red;}
 }
 
 #map {
@@ -12,8 +12,71 @@
 }
 
 #where-im-at {
-    color: red;
-    animation-name: pretty-colors;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
+  color: red;
+  animation-name: pretty-colors;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+#distance {
+  width: 40px;
+}
+
+
+
+/* From Pali Madra on CodePen
+https://codepen.io/palimadra/pen/jHodC */
+
+@import "compass/css3";
+
+button.button {
+  background-color: #C63702;
+  background-image:
+    linear-gradient(
+      167deg,
+      rgba(white, 0.1) 50%,
+      rgba(black, 0) 55%),
+    linear-gradient(
+      top,
+      rgba(white, 0.15),
+      rgba(black, 0));
+  border-radius: 6px;
+  box-shadow:
+    0 0 0 1px #C63702 inset,
+    0 0 0 2px rgba(white, 0.15) inset,
+    0 8px 0 0 #AD3002,
+    0 8px 0 1px rgba(black, 0.4),
+    0 8px 8px 1px rgba(black, 0.5);
+  color: #FFF;
+  display: inline-block;
+  font-family: "Courier New";
+  font-size: 22px;
+  font-weight: bold;
+  height: 61px;
+  letter-spacing: -1px;
+  line-height: 61px;
+  margin: 30px 0 10px;
+  position: relative;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(black, 0.5);
+  text-decoration: none !important;
+  top: 0;
+  @include transition(0.15s);
+  &:hover, &:focus {
+    background-color: #D13902;
+    box-shadow:
+      0 0 0 1px #C63702 inset,
+      0 0 0 2px rgba(white, 0.15) inset,
+      0 10px 0 0 #AD3002,
+      0 10px 0 1px rgba(black, 0.4),
+      0 10px 8px 1px rgba(black, 0.6);
+      top: -2px;
+  }
+  &:active {
+    box-shadow:
+      0 0 0 1px #AD3002 inset,
+      0 0 0 2px rgba(white, 0.15) inset,
+      0 0 0 1px rgba(black, 0.4);
+    @include transform(translateY(10px));
+  }
 }

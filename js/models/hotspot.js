@@ -1,11 +1,12 @@
 class Hotspot {
-  constructor(objectId, ssid, location, city, boro, locationType, latitude, longitude, name, provider, distance) {
+  constructor(objectId, ssid, location, city, boro, locationType, type, latitude, longitude, name, provider, distance) {
     this.objectId = objectId
     this.ssid = ssid
     this.location = location
     this.city = city
     this.boro = boro
     this.locationType = locationType
+    this.type = type
     this.latitude = parseFloat(latitude)
     this.longitude = parseFloat(longitude)
     this.name = name
@@ -16,6 +17,8 @@ class Hotspot {
   static all() {
     return HotspotApi.getJSON("views/yjub-udmw/rows.json")
     .then(this.filterOutTimeWarner)
+    .then(this.filterOutCablevision)
+    .then(this.filterOutATT)
     .then((data) => {
       return data.map(this.modelize)
     })
@@ -36,7 +39,15 @@ class Hotspot {
   }
 
   static filterOutTimeWarner(hotspots) {
-    return hotspots.filter((h) => h[10] !== "Limited Free")
+    return hotspots.filter((h) => (h[10] !== "Limited Free") && (h[11] !== "Time Warner Cable"))
+  }
+
+  static filterOutCablevision(hotspots) {
+    return hotspots.filter((h) => (h[10] !== "Limited Free") && (h[11] !== "Cablevision"))
+  }
+
+  static filterOutATT(hotspots) {
+    return hotspots.filter((h) => (h[10] !== "Limited Free") && (h[11] !== "AT&T"))
   }
 
   static modelize(hotspot) {
@@ -47,6 +58,7 @@ class Hotspot {
       hotspot[20],
       hotspot[9],
       hotspot[18],
+      hotspot[10],
       hotspot[14],
       hotspot[15],
       hotspot[12],

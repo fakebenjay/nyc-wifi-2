@@ -30,7 +30,7 @@ class MapView {
 
       var hotspotMarker = new google.maps.Marker({
         position: {lat: hotspot.latitude, lng: hotspot.longitude},
-        icon: 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_green.png',
+        icon: (hotspot.type === "Limited Free" ? 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_green.png' : 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_blue.png'),
         // http://kml4earth.appspot.com/icons.html
         map: map
       });
