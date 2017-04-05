@@ -1,15 +1,10 @@
 class MapView {
   static initMap($target, locationResult, data) {
-    // var hotspots = Hotspot.localize()
-    // var locationPromise = Here.whereAmI()
     var map
     var infowindow
     var marker
     var hotspotMarkers
     var prevInfowindow = false
-
-    // Promise.all([locationPromise, hotspots])
-    // .then(([locationResult, data]) => {
 
     map = new google.maps.Map($target[0], {
       zoom: 15,
@@ -48,6 +43,5 @@ class MapView {
         hotspotInfowindow.open(map, hotspotMarker);
       });
     })
-    // })
   }
 }

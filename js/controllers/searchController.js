@@ -10,16 +10,14 @@ class SearchController {
       e.preventDefault()
       $mapArea.hide()
       $loadScreen.show()
-      var hotspots = Hotspot.localize() //Lines 10-13 & 15 were greyed out in MapView.js
+      var hotspots = Hotspot.localize()
       var locationPromise = Here.whereAmI()
       Promise.all([locationPromise, hotspots])
       .then(([locationResult, data]) => {
         $mapArea.show()
         $loadScreen.hide()
-        MapView.initMap(this.$mapArea, locationResult, data) //Line 14 was modified to handle more params
+        MapView.initMap(this.$mapArea, locationResult, data)
       })
     })
   }
 }
-
-//Above changes made with help of Professor Steven Nunez
