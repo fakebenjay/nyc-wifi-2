@@ -16,7 +16,7 @@ class SearchController {
       .then(([locationResult, data]) => {
         $mapArea.show()
         $loadScreen.hide()
-        MapView.initMap(this.$mapArea, locationResult, data)
+        MapView.loadMap(this.$mapArea, locationResult, data)
       })
     })
   }

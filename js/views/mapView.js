@@ -1,11 +1,13 @@
 class MapView {
-  static initMap($target, locationResult, data) {
+  static loadMap($target, locationResult, data) {
     var map
     var infowindow
     var marker
     var hotspotMarkers
     var prevInfowindow = false
 
+    GoogleApi.apiCall()
+    .then(() => {
     map = new google.maps.Map($target[0], {
       zoom: 15,
       center: locationResult
@@ -43,5 +45,5 @@ class MapView {
         hotspotInfowindow.open(map, hotspotMarker);
       });
     })
-  }
+  })}
 }
