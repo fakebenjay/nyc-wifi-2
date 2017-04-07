@@ -15,7 +15,6 @@ class GoogleApi {
       dataType: 'jsonp',
       cache: false,
       success: function(response) {
-        console.log(response)
         return response;
       }
     });

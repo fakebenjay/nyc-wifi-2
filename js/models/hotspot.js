@@ -19,6 +19,10 @@ class Hotspot {
     .then((data) => {
       return data.map(this.modelize)
     })
+  }
+
+  static weedOut() {
+    return Hotspot.all()
     .then(this.filterOutTimeWarner)
     .then(this.filterOutCablevision)
     .then(this.filterOutATT)
@@ -26,7 +30,7 @@ class Hotspot {
 
   static localize() {
     let locationPromise = Here.whereAmI()
-    let hotspotPromise = Hotspot.all()
+    let hotspotPromise = Hotspot.weedOut()
 
     return Promise.all([locationPromise, hotspotPromise])
     .then(([locationResult, data]) => {
