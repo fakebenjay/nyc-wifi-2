@@ -7,13 +7,9 @@ class SearchController {
   }
   attachListeners() {
     $(this.$button).on('click', (e) => {
-      debugger
       e.preventDefault()
-      debugger
       $mapArea.hide()
-      debugger
       $loadScreen.show()
-      debugger
       var hotspots = Hotspot.localize()
       var locationPromise = Here.whereAmI()
       Promise.all([locationPromise, hotspots])
