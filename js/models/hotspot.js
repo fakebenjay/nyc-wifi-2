@@ -16,10 +16,12 @@ class Hotspot {
 
   static all() {
     return HotspotApi.getJSON("views/yjub-udmw/rows.json")
-    .then(this.filterOutTimeWarner)
     .then((data) => {
       return data.map(this.modelize)
     })
+    .then(this.filterOutTimeWarner)
+    .then(this.filterOutCablevision)
+    .then(this.filterOutATT)
   }
 
   static localize() {
@@ -37,15 +39,24 @@ class Hotspot {
   }
 
   static filterOutTimeWarner(hotspots) {
-    return hotspots.filter((h) => (h[10] !== "Limited Free") && (h[11] !== "Time Warner Cable"))
+    if (!$('input#time-warner').prop('checked')) {
+      return hotspots.filter((h) => `${h.type}, ${h.provider}` !== `Limited Free, Time Warner Cable`)
+    }
+    return hotspots
   }
 
   static filterOutCablevision(hotspots) {
-    return hotspots.filter((h) => (h[10] !== "Limited Free") && (h[11] !== "Cablevision"))
+    if (!$('input#cablevision').prop('checked')) {
+      return hotspots.filter((h) => `${h.type}, ${h.provider}` !== `Limited Free, Cablevision`)
+    }
+    return hotspots
   }
 
   static filterOutATT(hotspots) {
-    return hotspots.filter((h) => (h[10] !== "Limited Free") && (h[11] !== "AT&T"))
+    if (!$('input#att').prop('checked')) {
+      return hotspots.filter((h) => `${h.type}, ${h.provider}` !== `Limited Free, AT&T`)
+    }
+    return hotspots
   }
 
   static modelize(hotspot) {
