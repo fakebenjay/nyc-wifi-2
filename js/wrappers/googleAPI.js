@@ -11,7 +11,3 @@ class GoogleApi {
     });
   }
 }
-
-function herp() {
-  console.log("butts")
-}
