@@ -1,5 +1,3 @@
-const aws = require('aws-sdk');
-
 const key = process.env.GOOGLE_API_KEY
 
 class GoogleApi {
