@@ -1,7 +1,7 @@
 class GoogleApi {
   static apiCall() {
     return $.ajax({
-      url: `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_API_KEY}`,
+      url: `https://maps.googleapis.com/maps/api/js?key=AIzaSyB23NtAbSljbilSuh69CpWbLWS810ZmUWU`,
       type: "GET",
       dataType: 'jsonp',
       cache: false,
