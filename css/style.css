@@ -24,7 +24,9 @@ body {
 }
 
 #map {
-  height: 400px;
+  min-height: 400px;
+  height: auto !important;
+  height: 100%
   width: 100%;
 }
 
@@ -36,10 +38,17 @@ body {
 }
 
 #loading {
+  text-align: center;
   font-size: 60pt;
   animation-name: red-lenses;
   animation-duration: 1s;
   animation-iteration-count: infinite;
+}
+
+.load-header{
+  text-align:center !important;
+  margin:auto;
+  position: relative;
 }
 
 #distance {
@@ -103,8 +112,6 @@ https://codepen.io/palimadra/pen/jHodC */
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
 }
 
 .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
