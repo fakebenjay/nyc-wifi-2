@@ -21,11 +21,11 @@ class MapView {
       position: locationResult,
       map: map
     });
+
     marker.addListener('click', function() {
       if(prevInfowindow) {
         prevInfowindow.close();
       }
-
       prevInfowindow = infowindow
       infowindow.open(map, marker);
     });
@@ -33,19 +33,17 @@ class MapView {
     hotspotMarkers = data.map((hotspot) => {
       var hotspotInfowindow = new google.maps.InfoWindow({
         content: HotspotView.listItemTemplate(hotspot)
-      });
-
+      })
       var hotspotMarker = new google.maps.Marker({
         position: {lat: hotspot.latitude, lng: hotspot.longitude},
         icon: (hotspot.type === "Limited Free" ? 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_blue.png' : 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_green.png'),
         // http://kml4earth.appspot.com/icons.html
         map: map
-      });
+      })
       hotspotMarker.addListener('click', function() {
         if(prevInfowindow) {
           prevInfowindow.close();
         }
-
         prevInfowindow = hotspotInfowindow;
         hotspotInfowindow.open(map, hotspotMarker);
       });

@@ -5,6 +5,7 @@ class SearchController {
     this.$loadScreen = $loadScreen
     this.attachListeners()
   }
+  
   attachListeners() {
     $(this.$button).on('click', (e) => {
       e.preventDefault()
