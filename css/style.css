@@ -24,9 +24,7 @@ body {
 }
 
 #map {
-  min-height: 400px;
-  height: auto !important;
-  height: 100%
+  height: calc(100vh - 265px);
   width: 100%;
 }
 
@@ -123,8 +121,6 @@ https://codepen.io/palimadra/pen/jHodC */
   position: relative;
   width: 100%;
   min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
 }
 
 .col-md-1 {
