@@ -36,7 +36,7 @@ class MapView {
       })
       var hotspotMarker = new google.maps.Marker({
         position: {lat: hotspot.latitude, lng: hotspot.longitude},
-        icon: (hotspot.type === "Limited Free" ? 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_blue.png' : 'http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_green.png'),
+        icon: (hotspot.type === "Limited Free" ? 'https://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_blue.png' : 'https://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_green.png'),
         // http://kml4earth.appspot.com/icons.html
         map: map
       })
