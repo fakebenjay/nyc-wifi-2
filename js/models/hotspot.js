@@ -44,14 +44,14 @@ class Hotspot {
 
   static filterOutTimeWarner(hotspots) {
     if (!$('input#time-warner').prop('checked')) {
-      return hotspots.filter((h) => `${h.type}, ${h.provider}` !== `Limited Free, Time Warner Cable`)
+      return hotspots.filter((h) => `${h.type}, ${h.provider}` !== `Limited Free, SPECTRUM`)
     }
     return hotspots
   }
 
   static filterOutCablevision(hotspots) {
     if (!$('input#cablevision').prop('checked')) {
-      return hotspots.filter((h) => `${h.type}, ${h.provider}` !== `Limited Free, Cablevision`)
+      return hotspots.filter((h) => `${h.type}, ${h.provider}` !== `Limited Free, ALTICEUSA`)
     }
     return hotspots
   }
